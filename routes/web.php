@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    redirect()->routes('profiles.index');
 });
+
+Route::resource('profiles', 'ProfileController',[
+    'only' => ['store' , 'index' , 'create']
+]);
