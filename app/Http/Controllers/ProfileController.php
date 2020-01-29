@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 use App\Profile;
 use App\Exports\ProfileExport;
 use Maatwebsite\Excel\Facades\Excel;
-
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -37,7 +36,25 @@ class ProfileController extends Controller
 
         ]);
 
-        Profile::create($request->all());
+        $data = request()->all();
+
+        $profile = new Profile();
+
+        $profile->name = $data['name'];
+        $profile->gender = $data['gender'];
+        $profile->phone = $data['phone'];
+        $profile->email = $data['email'];
+        $profile->address = $data['address'];
+        $profile->nationality = $data['nationality'];
+        $profile->dateofbirth = $data['dateofbirth'];
+        $profile->education = $data['education'];
+        $profile->contact = $data['contact'];
+
+        $profile->save();   
+
+
+
+
 
         return redirect()->route('profiles.index')
                         ->with('success', 'Profiles created successfully');

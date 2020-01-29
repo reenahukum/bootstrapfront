@@ -5,13 +5,26 @@
     <a class="btn btn-primary  btn-rounded  float-left col-1" href="{{ route('profiles.index') }}">Back </a>
 
     <h1> Create Profiles </h1>
-    <form class="needs-validation" novalidate action="{{ route('profiles.store') }}">
+    <!--Checking and displaying errors -->
+    @if($errors->any())
+      <div class="alert alert-danger">
+        <ul class="list-group">
+          @foreach($errors->all() as $error)
+            <li class="list-group-item">
+              {{ $error }}
+            </li>
+          @endforeach
+        </ul>
+      </div>
+    @endif 
+     
+    <form class="needs-validation"  action="{{ route('profiles.store') }}" method="POST">
       @csrf
       <!-- Start of first row -->
       <div class="row"> 
         <div class="form-group col-6">
           <label for="name">Full Name</label>
-          <input type="text" class="form-control is-valid" id="name"  placeholder="Enter full name" required>
+          <input type="text" class="form-control is-valid" id="name" name="name"  placeholder="Enter full name" required>
           <div class="invalid-feedback">
             Enter a full name
           </div>
@@ -19,7 +32,7 @@
 
         <div class="form-group col-6">
           <label for="gender">Select Gender</label>
-          <select class="form-control is-valid" id="gender" required>
+          <select class="form-control is-valid" id="gender" name="gender" required>
             <option>Male</option>
             <option>Female</option>
             <option>Other</option>
@@ -36,7 +49,7 @@
       <div class="row">
         <div class="form-group col-6">
           <label for="email">Your Email</label>
-          <input type="email" class="form-control is-valid" id="email"  placeholder="Enter your email address" required>
+          <input type="email" class="form-control is-valid" id="email" name="email"  placeholder="Enter your email address" required>
           <div class="invalid-feedback">
             Enter your email address
           </div>
@@ -45,7 +58,7 @@
 
         <div class="form-group col-6">
           <label for="address">Address</label>
-          <input type="text" class="form-control is-valid" id="address"  placeholder="Enter your full  address" required>
+          <input type="text" class="form-control is-valid" id="address" name="address"  placeholder="Enter your full  address" required>
           <div class="invalid-feedback">
             Please enter your full address
           </div>
@@ -57,7 +70,7 @@
       <div class='row'>
         <div class="form-group col-6 is-valid">
           <label for="nation">Select Your Nationality</label>
-          <select class="form-control is-valid" id="gender">
+          <select class="form-control is-valid" name="nationality" id="nation">
             <option>Nepali</option>
             <option>Indian</option>
             <option>Chinese</option>
@@ -73,7 +86,7 @@
 
         <div class="form-group col-6">
           <label for="eduction">Education</label>
-          <select class="form-control is-valid" id="education">
+          <select class="form-control is-valid" id="education" name="education" required>
             <option>HighSchool</option>
             <option>Bacholar</option>
             <option>Degree</option>
@@ -86,21 +99,36 @@
      <div class="row">
       <div class="form-group col-6">
           <label for="contact">Your contact</label>
-          <input type="text" class="form-control is-valid" id="contact"  placeholder="Your contact" required>
+          <input type="text" class="form-control is-valid" id="contact" name="contact" placeholder="Your contact" required>
           <div class="invalid-feedback">
             Enter your contact
           </div>
-        </div>
+      </div>
 
-        <div class="form-group col-6">
-          <label for="datapicker-13">Pick a date</label>
-          <input type="text"  id="datepicker-13" class="form-control  is-valid" value="" required />
+      <div class="form-group col-6">
+        <label for="contact">Your PhoneNumber</label>
+        <input type="text" class="form-control is-valid" id="contact" name="phone" placeholder="Your phone number" required>
+        <div class="invalid-feedback">
+            Enter your phone number
+        </div>
+      </div>
+
+
+        
+     </div>
+
+
+
+     <!--End of fourth row -->
+
+     <div class="form-group ">
+          <label for="datapicker-13">Date of Birth</label>
+          <input type="text"  id="datepicker-13" class="form-control  is-valid" name="dateofbirth" value="" required />
           <div class="invalid-feedback">
             Pick a date
           </div>
         </div>
-     </div>
-     <!--End of fourth row -->
+
     
       
     

@@ -5,6 +5,11 @@
         <h1>Profiles Table</h1>
    </div> 
   <div class="card-body">
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+             <p>{{ $message }}</p>
+         </div>
+    @endif
     <table class="table table-bordered table-primary">
         <thead class = 'table-dark table-bordered'>
             <tr>
