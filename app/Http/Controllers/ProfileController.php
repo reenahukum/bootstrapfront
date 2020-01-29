@@ -24,9 +24,9 @@ class ProfileController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string',
+            'name' => 'required|string|min:5|max:25',
             'gender' => 'required',
-            'phone' => 'required',
+            'phone' => 'required|min:10|max:10',
             'email' => 'required|email',
             'address' => 'required',
             'nationality' => 'required',
