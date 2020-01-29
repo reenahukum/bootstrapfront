@@ -9,10 +9,10 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        $profiles = Profile::latest()->paginate(5);
+        $profiles = Profile::all();
 
-        return view('profiles.index', compact('profiles'))
-        ->with('i', (request() -> input('page', 1) -1) * 5);
+        return view('profiles.index', compact('profiles'));
+        
     }
 
     public function create()

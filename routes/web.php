@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    redirect()->routes('profiles.index');
+    return  redirect()->route('profiles.index');
 });
 
 Route::resource('profiles', 'ProfileController',[
