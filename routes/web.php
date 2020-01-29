@@ -18,3 +18,5 @@ Route::get('/', function () {
 Route::resource('profiles', 'ProfileController',[
     'only' => ['store' , 'index' , 'create']
 ]);
+
+Route::get('export', 'ProfileController@export')->name('export');

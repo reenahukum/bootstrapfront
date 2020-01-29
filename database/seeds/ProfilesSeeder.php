@@ -12,6 +12,6 @@ class ProfilesSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Profile::class, 15)->create();
+        factory(App\Profile::class, 3)->create();
     }
 }
