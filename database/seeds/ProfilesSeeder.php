@@ -11,7 +11,23 @@ class ProfilesSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        factory(App\Profile::class, 3)->create();
+    {   
+        $profile = new Profile();
+
+        $profile->name = 'hukum';
+        $profile->gender = 'male';
+        $profile->phone = '9847980223';
+        $profile->email = 'basnethukum789@gmail.com';
+        $profile->address = 'manpur';
+        $profile->nationality = 'nepali';
+        $profile->dateofbirth = '90/5/70';
+        $profile->education = 'bacholar';
+        $profile->contact = 'kathmandu';
+
+        $profile->save();   
+
+
+
+        
     }
 }
