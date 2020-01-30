@@ -1,4 +1,4 @@
-@extends('profiles.layout')
+@extends('Profiles.layout')
 @section('content')
 <div class="card">
    <div class="card text-center">
