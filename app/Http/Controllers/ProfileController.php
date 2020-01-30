@@ -56,7 +56,7 @@ class ProfileController extends Controller
 
 
 
-        return redirect()->route('Profiles.index')
+        return redirect()->route('profiles.index')
                         ->with('success', 'Profiles created successfully');
     }
 
