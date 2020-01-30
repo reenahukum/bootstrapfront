@@ -2,7 +2,7 @@
 @section('content')
 <div class="card">
    <div class="card text-center">
-        <h1>Profiles Table</h1>
+        <h1>Profiles</h1>
    </div> 
   <div class="card-body">
     @if ($message = Session::get('success'))
