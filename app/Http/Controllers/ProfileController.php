@@ -12,13 +12,13 @@ class ProfileController extends Controller
     {
         $profiles = Profile::all();
 
-        return view('profiles.index', compact('profiles'));
+        return view('Profiles.index', compact('profiles'));
         
     }
 
     public function create()
     {
-        return view('profiles.create');
+        return view('Profiles.create');
     }
 
     public function store(Request $request)
@@ -56,7 +56,7 @@ class ProfileController extends Controller
 
 
 
-        return redirect()->route('profiles.index')
+        return redirect()->route('Profiles.index')
                         ->with('success', 'Profiles created successfully');
     }
 
